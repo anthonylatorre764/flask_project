@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Pokemon Stats
+{% endblock %}
+    {% block content %}
+    <form method="POST" class="px-3">
+        <div class="mb-3">
+          <label for="pokemon_name" class="form-label">Pokemon Name:</label>
+          <input type="text" class="form-control" id="pokemon_name" name="pokemon_name">
+        </div>
+        <div class="mb-3">
+          <label for="pokemon_id" class="form-label">Pokemon ID:</label>
+          <input type="text" class="form-control" id="pokemon_id" name="pokemon_id">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {% if info_list %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Ability_1</th>
+          <th scope="col">Ability_2</th>
+          <th scope="col">Base_XP</th>
+          <th scope="col">Sprite_link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {% for item in info_list %}
+
+            {% if 'https' in item|string %}
+            <a><td scope="row">{{item}}</td></a>
+            {% else %}
+            <td scope="row">{{item}}</td>
+            {% endif %}
+            
+          {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+    {% endif %}
+    {% endblock %}
