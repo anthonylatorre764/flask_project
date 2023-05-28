@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Pokemon Stats
+{% endblock %}
+    {% block content %}
+    <!-- User inputs pokemon name -->
+    <form method="POST" class="px-3">
+        <div class="mb-3">
+          {{ form.hidden_tag() }}
+          <label for="pokemon_name" class="form-label">Pokemon Name:</label>
+          {{ form.pokemon_name(class_="pokemon_input_field") }}
+          {{ form.submit_btn(class_="submit_btn") }}
+        </div>
+    </form>
+    <!-- Show pokemon card -->
+    {% if pokemon_dict %}
+    <div id="card_container">
+      <div id="name_xp">
+          {% if pokemon_dict['name']|length > 8 %}
+            <h3 id="pokemon" style="font-size: 17px;">{{pokemon_dict['name'].title()}}</h3>
+          {% else %}
+            <h3 id="pokemon">{{pokemon_dict['name'].title()}}</h3>
+          {% endif %}
+          <p id="xp">{{pokemon_dict['base_xp']|string + ' XP'}}</p>
+      </div>
+      <img src="{{pokemon_dict['sprite']}}" id="sprite">
+      <div id="abilities_container">
+          <div class="ability_num">
+              <p>Ability 1:</p>
+              <p class="ability_name">{{pokemon_dict['ability_1']}}</p>
+          </div>
+          <hr>
+          <div class="ability_num">
+              <p>Ability 2:</p>
+              <p class="ability_name">{{pokemon_dict['ability_2']}}</p>
+          </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endblock %}
