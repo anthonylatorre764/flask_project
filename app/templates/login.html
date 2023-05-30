@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Login Page
+{% endblock %}
+
+    {% block content %}
+        <div id="login_container">
+            <h3 id="login_heading">Login</h3>
+            <form id="login_form" method="POST">
+                {{ form.hidden_tag() }}
+                <label for="Email">Email:</label>
+                {{ form.email(class="input_field") }}
+                <label for="Password">Password:</label>
+                {{ form.password(class="input_field") }}
+                {{ form.submit_btn(id_="login_btn") }}
+            </form>  
+        </div>
+    {% endblock %}

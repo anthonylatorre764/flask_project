@@ -1,6 +1,6 @@
 from flask import request, render_template
 import requests
-from app.forms import PokemonForm
+from app.forms import PokemonForm, LoginForm, SignUpForm
 from app import app
 
 
@@ -8,6 +8,24 @@ from app import app
 @app.route('/home')
 def home():
     return render_template('home.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if request.method == 'POST':
+        return render_template('home.html')
+    
+    return render_template('login.html', form=form)
+
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    form = SignUpForm()
+    if request.method == 'POST':
+        return render_template('home.html')
+    
+    return render_template('signup.html', form=form)
 
 
 @app.route('/pokemon', methods=['GET', 'POST'])

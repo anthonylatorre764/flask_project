@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Sign Up Page
+{% endblock %}
+
+    {% block content %}
+        <div id="signup_container">
+            <h3 id="signup_heading">Sign Up</h3>
+            <form id="signup_form" method="POST">
+                {{ form.hidden_tag() }}
+                <label for="First Name">First Name:</label>
+                {{ form.first_name(class="signup_input") }}
+                <label for="Last Name">Last Name:</label>
+                {{ form.last_name(class="signup_input") }}
+                <label for="Email">Email:</label>
+                {{ form.email(class="signup_input") }}
+                <label for="Password">Password:</label>
+                {{ form.password(class="signup_input") }}
+                {{ form.submit_btn(id="signup_btn") }}
+            </form>    
+        </div>
+        
+    {% endblock %}

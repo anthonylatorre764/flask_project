@@ -8,7 +8,7 @@
     color: gold;
 }
 
-/* home page */
+/* Home Page */
 #home_page h2 {
     text-align: center;
 }
@@ -25,6 +25,8 @@
     margin: 0 auto;
 }
 
+
+/* Pokemon Page */
 .mb-3 {
     display: flex;
     flex-direction: column;
@@ -95,7 +97,6 @@
 }
 
 
-
 #abilities_container {
     margin-top: 15px;
     height: 125px;
@@ -126,5 +127,90 @@ hr {
 
 
 .ability_name {
+    font-weight: bold;
+}
+
+
+/* Login Page */
+#login_container {
+    border: 10px solid rgb(41, 41, 169);
+    border-radius: 10px;
+    width: 300px;
+    height: 375px;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-color: rgb(101, 145, 199);
+}
+
+
+#login_heading {
+    text-align: center;
+    margin: 30px 10px 10px 10px;
+    color: rgb(244, 233, 173);
+    font-size: 35px;
+}
+
+
+#login_form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 10px 10px 10px;
+}
+
+
+.input_field {
+    margin-bottom: 20px;
+    background-color: rgb(244, 233, 173);
+}
+
+#login_btn {
+    width: 75px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 6px;
+    background-color: rgb(41, 41, 169);
+    color: gold;
+    font-weight: bold;
+}
+
+
+/* Sign Up Page */
+#signup_container {
+    border: 5px solid rgb(41, 41, 169);
+    border-radius: 10px;
+    width: 350px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+    color: rgb(41, 41, 169);
+    background-color: rgb(244, 242, 231);
+}
+
+
+#signup_heading {
+    margin: 10px;
+    text-align: center;
+}
+
+#signup_form {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px 5px 20px;
+}
+
+
+.signup_input {
+    margin: 10px 0 20px 0;
+}
+
+#signup_btn {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 75px;
+
+    border-radius: 6px;
+    height: 37px;
+    background-color: rgb(41, 41, 169);
+    color: gold;
     font-weight: bold;
 }
