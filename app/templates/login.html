@@ -10,10 +10,13 @@
             <form id="login_form" method="POST">
                 {{ form.hidden_tag() }}
                 <label for="Email">Email:</label>
-                {{ form.email(class="input_field") }}
+                {{ form.email(class="input_email_field") }}
                 <label for="Password">Password:</label>
-                {{ form.password(class="input_field") }}
+                {{ form.password(class="input_pwd_field") }}
                 {{ form.submit_btn(id_="login_btn") }}
+                {% if error %}
+                    <p id="signin_error">{{ error }}</p>
+                {% endif %}
             </form>  
         </div>
     {% endblock %}

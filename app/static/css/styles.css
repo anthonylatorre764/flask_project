@@ -1,12 +1,60 @@
+/* All Pages */
 .container-fluid {
-    background-color: rgba(62, 92, 243, 0.913);
+    background-color: rgba(23, 89, 195, 0.906);
     
 }
-
 
 .container-fluid a {
     color: gold;
 }
+
+#home_tab {
+    text-decoration: none;
+    color: lightgrey;
+    font-weight: bold;
+}
+
+#current_user {
+    color: gold;
+}
+
+#logout_btn {
+    width: 80px;
+    height: 30px;
+    padding: 2px 0;
+    background-color: gold;
+    color: rgba(23, 89, 195, 0.906);
+    font-weight: bold;
+}
+
+#logout_btn:hover {
+    background-color: rgb(224, 190, 0);
+}
+
+@media screen and (min-width: 992px) {
+    #logout_btn {
+        margin: 5px 0 0 5px;
+    }
+    .navbar-nav {
+        padding-top: 11px;
+    }
+}
+
+#login_tab {
+    margin-bottom: 10px;
+}
+
+#signup_tab {
+    margin-bottom: 10px;
+}
+
+body {
+    background-image: linear-gradient(white, rgba(23, 89, 195, 0.906));
+    height: 1000px;
+}
+
+
+
 
 /* Home Page */
 #home_page h2 {
@@ -25,29 +73,52 @@
     margin: 0 auto;
 }
 
+@media screen and (min-width: 800px) {
+    #pokemon_logo {
+        width: 563px;
+    }
+    #pokeball {
+        width: 241px;
+    }
+}
+
+
+
 
 /* Pokemon Page */
-.mb-3 {
+#pokemon_form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+#pokemon_label {
+    color: rgba(23, 89, 195, 0.906);
+    font-size: larger;
+    margin-right: 225px;
 }
 
 .pokemon_input_field {
-    border: 1px solid lightgrey;
-    border-radius: 6px;
-    width: 470px;
-    height: 37px;
-    margin-bottom: 12px;
+    border-radius: 30px;
+    width: 400px;
+    height: 45px;
+    margin: 5px 0 20px 0;
+    padding-left: 18px;
+    font-size: larger;
 }
 
 .submit_btn {
     border-radius: 6px;
-    width: 75px;
+    width: 110px;
     height: 37px;
-    background-color: rgba(62, 92, 243, 0.913);
+    background-color: rgba(23, 89, 195, 0.906);
     color: gold;
     font-weight: bold;
 }
+
 
 
 
@@ -57,11 +128,12 @@
     width: 285px;
     height: 400px;
     margin: 0 auto;
+    margin-top: 60px;
     text-align: center;
     background-image: url("../images/tie_dye.webp");
     font-family: sans-serif;
+    box-shadow: 5px 5px 10px 10px;
 }
-
 
 #name_xp {
     display: flex;
@@ -72,7 +144,6 @@
     margin: 0 auto;
     margin-top: 15px;
 }
-
 
 #pokemon {
     display: inline-block;
@@ -96,7 +167,6 @@
     object-fit: cover;
 }
 
-
 #abilities_container {
     margin-top: 15px;
     height: 125px;
@@ -117,7 +187,6 @@
     font-size: large;
 }
 
-
 hr {
     width: 90%;
     opacity: 100%;
@@ -125,29 +194,29 @@ hr {
     margin: 15px;
 }
 
-
 .ability_name {
     font-weight: bold;
 }
 
 
+
 /* Login Page */
 #login_container {
-    border: 10px solid rgb(41, 41, 169);
+    border: 10px solid rgba(23, 89, 195, 0.906);
     border-radius: 10px;
-    width: 300px;
-    height: 375px;
+    width: 460px;
+    height: 410px;
     margin: 0 auto;
-    margin-top: 50px;
-    background-color: rgb(101, 145, 199);
+    margin-top: 80px;
+    background-color: rgb(139, 167, 201);
 }
 
 
 #login_heading {
     text-align: center;
     margin: 30px 10px 10px 10px;
-    color: rgb(244, 233, 173);
-    font-size: 35px;
+    color: rgba(223, 231, 241, 0.906);
+    font-size: 45px;
 }
 
 
@@ -157,39 +226,88 @@ hr {
     padding: 30px 10px 10px 10px;
 }
 
-
-.input_field {
-    margin-bottom: 20px;
-    background-color: rgb(244, 233, 173);
+#login_form label {
+    color: rgba(23, 89, 195, 0.906);
+    font-size: large;
+    font-weight: bold;
+    margin-left: 25px;
 }
 
+.input_email_field {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: rgba(223, 231, 241, 0.906);
+    border: none;
+    border-radius: 30px;
+    padding-left: 13px;
+    height: 35px;
+    width: 400px;
+}
+
+.input_pwd_field {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: rgba(223, 231, 241, 0.906);
+    border: none;
+    border-radius: 30px;
+    padding-left: 13px;
+    height: 35px;
+    width: 400px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+
+form.password.input_field {
+    color: red;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+
 #login_btn {
-    width: 75px;
+    width: 100px;
+    height: 35px;
     margin: 0 auto;
     margin-top: 20px;
     border-radius: 6px;
-    background-color: rgb(41, 41, 169);
+    background-color: rgba(23, 89, 195, 0.906);
     color: gold;
     font-weight: bold;
+    font-size: larger;
+}
+
+
+#signin_error {
+    color: rgb(123, 0, 0);
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
 }
 
 
 /* Sign Up Page */
 #signup_container {
-    border: 5px solid rgb(41, 41, 169);
+    border: 5px solid rgba(23, 89, 195, 0.906);
     border-radius: 10px;
-    width: 350px;
-    height: 500px;
+    width: 430px;
+    height: 620px;
     margin: 0 auto;
     margin-top: 50px;
-    color: rgb(41, 41, 169);
-    background-color: rgb(244, 242, 231);
+    color: rgba(23, 89, 195, 0.906);
+    background-color: rgba(223, 231, 241, 0.906);
 }
 
 
 #signup_heading {
     margin: 10px;
     text-align: center;
+    font-size: 30px;
+}
+
+
+#signup_form label {
+    margin-left: 15px;
 }
 
 #signup_form {
@@ -200,17 +318,28 @@ hr {
 
 
 .signup_input {
-    margin: 10px 0 20px 0;
+    margin: 5px 0 25px 0;
+    border: none;
+    border-radius: 30px;
+    height: 40px;
+    padding-left: 18px;
 }
 
 #signup_btn {
     margin: 0 auto;
-    margin-top: 20px;
-    width: 75px;
-
+    margin-top: 10px;
+    width: 95px;
     border-radius: 6px;
     height: 37px;
-    background-color: rgb(41, 41, 169);
+    background-color: rgba(23, 89, 195, 0.906);
     color: gold;
     font-weight: bold;
+}
+
+
+#signup_error {
+    color: rgb(123, 0, 0);
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
 }

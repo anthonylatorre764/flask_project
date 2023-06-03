@@ -5,18 +5,19 @@ from wtforms.validators import DataRequired
 
 class PokemonForm(FlaskForm):
     pokemon_name = StringField('Pokemon Name', validators=[DataRequired()])
-    submit_btn = SubmitField('Submit')
+    submit_btn = SubmitField('Show Stats')
 
 
 class LoginForm(FlaskForm):
-    email = EmailField('Email', validators=[DataRequired()])
+    email = EmailField('Email', validators=[DataRequired()], render_kw={'autofocus': True})
     password = PasswordField('Password', validators=[DataRequired()])
     submit_btn = SubmitField('Login')
 
 
 class SignUpForm(FlaskForm):
-    first_name = StringField('First Name', validators=[DataRequired()])
+    first_name = StringField('First Name', validators=[DataRequired()], render_kw={'autofocus': True})
     last_name = StringField('Last Name', validators=[DataRequired()])
     email = EmailField('Email', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
+    confirm_pwd = PasswordField('Confirm Pwd', validators=[DataRequired()])
     submit_btn = SubmitField('Sign Up')

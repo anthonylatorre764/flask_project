@@ -5,13 +5,11 @@
 {% endblock %}
     {% block content %}
     <!-- User inputs pokemon name -->
-    <form method="POST" class="px-3">
-        <div class="mb-3">
-          {{ form.hidden_tag() }}
-          <label for="Pokemon Name" class="form-label">Pokemon Name:</label>
-          {{ form.pokemon_name(class_="pokemon_input_field") }}
-          {{ form.submit_btn(class_="submit_btn") }}
-        </div>
+    <form method="POST" id="pokemon_form">
+      {{ form.hidden_tag() }}
+      <label for="Pokemon Name" id="pokemon_label">Pokemon Name:</label>
+      {{ form.pokemon_name(class_="pokemon_input_field") }}
+      {{ form.submit_btn(class_="submit_btn") }}
     </form>
     <!-- Show pokemon card -->
     {% if pokemon_dict %}

@@ -17,22 +17,51 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/pokemon">Pokemon Stats</a>
-              </li>
-              <li>
-                <a class="nav-link" href="/login">Login</a>
-              </li>
-              <li>
-                <a class="nav-link" href="/signup">Sign Up</a>
-              </li>
+              {% if current_user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link" id="home_tab" aria-current="page" href="{{ url_for('home') }}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('pokemon') }}">Pokemon Stats</a>
+                  </li>
+                  <li>
+                    <p class="nav-link" id="current_user">Hello, {{ current_user.first_name }}</p>
+                  </li>
+                  <a class="btn btn-secondary" id="logout_btn" href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
+                  <li>
+                    <a class="nav-link" id="login_tab" href="{{ url_for('login') }}">Login</a>
+                  </li>
+                  <li>
+                    <a class="nav-link" id="signup_tab" href="{{ url_for('signup') }}">Sign Up</a>
+                  </li>
+              {% endif %}
             </ul>
           </div>
         </div>
       </nav>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <!-- empty column -->
+          </div>
+          <div class="col">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {%if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    <span>{{ message }}</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+          </div>
+          <div class="col">
+            <!-- empty column -->
+          </div>
+        </div>
+      </div>
     {% block content %}
 
     {% endblock %}

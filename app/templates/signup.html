@@ -17,7 +17,12 @@
                 {{ form.email(class="signup_input") }}
                 <label for="Password">Password:</label>
                 {{ form.password(class="signup_input") }}
+                <label for="Confirm Pwd">Confirm Password:</label>
+                {{ form.confirm_pwd(class="signup_input") }}
                 {{ form.submit_btn(id="signup_btn") }}
+                {% if error %}
+                    <p id="signup_error">{{ error }}</p>
+                {% endif %}
             </form>    
         </div>
         
