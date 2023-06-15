@@ -152,7 +152,7 @@ body {
     font-weight: bold;
 }
 
-#xp {
+#hp {
     display: inline-block;
     color: red;
     font-weight: bold;
@@ -179,7 +179,7 @@ body {
 
 }
 
-.ability_num p {
+.battle_stat_box p {
     display: block;
     font-size: 14px;
     margin: 0;
@@ -194,10 +194,13 @@ hr {
     margin: 15px;
 }
 
-.ability_name {
+.attack_defense {
     font-weight: bold;
 }
 
+#catch_btn {
+    border: 1px solid black;
+}
 
 
 /* Login Page */

@@ -20,20 +20,26 @@
           {% else %}
             <h3 id="pokemon">{{pokemon_dict['name'].title()}}</h3>
           {% endif %}
-          <p id="xp">{{pokemon_dict['base_xp']|string + ' XP'}}</p>
+          <p id="hp">{{pokemon_dict['hp']|string + ' HP'}}</p>
       </div>
-      <img src="{{pokemon_dict['sprite']}}" id="sprite">
+      <img src="{{ pokemon_dict['sprite'] }}" id="sprite">
       <div id="abilities_container">
-          <div class="ability_num">
-              <p>Ability 1:</p>
-              <p class="ability_name">{{pokemon_dict['ability_1']}}</p>
+          <div class="battle_stat_box">
+              <p>Attack:</p>
+              <p class="attack_defense">{{pokemon_dict['attack']}}</p>
           </div>
           <hr>
-          <div class="ability_num">
-              <p>Ability 2:</p>
-              <p class="ability_name">{{pokemon_dict['ability_2']}}</p>
+          <div class="battle_stat_box">
+              <p>Defense:</p>
+              <p class="attack_defense">{{pokemon_dict['defense']}}</p>
           </div>
       </div>
     </div>
+    {% if caught_flag == True %}
+      <a href="{{ url_for('main.remove_pokemon') }}"><button>remove</button></a>
+    {% else %}
+      <a href="{{ url_for('main.catch_pokemon') }}"><button>catch</button></a>
+    {% endif %}
+
     {% endif %}
     {% endblock %}
