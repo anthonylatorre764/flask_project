@@ -198,8 +198,83 @@ hr {
     font-weight: bold;
 }
 
+.catch_remove_container {
+    text-align: center;
+    padding: 24px;
+}
+
+#remove_btn {
+    margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 12px;
+    width: 170px;
+    height: 37px;
+    background-color: rgb(160, 22, 22);
+    color: white;
+    font-weight: bold;
+}
+
 #catch_btn {
-    border: 1px solid black;
+    margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 12px;
+    width: 80px;
+    height: 37px;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+
+/* Team Page */
+#team_heading {
+    border: none;
+    display: inline-block;
+    margin: 30px 0 0 135px;
+    width: 170px;
+    height: 58px;
+    padding: 10px 0;
+    text-align: center;
+    background-color: rgba(23, 89, 195, 0.906);
+    color: lightgrey;
+    border-radius: 10px;
+    font-size: 29px;
+}
+
+#team_container {
+    padding: 40px;
+}
+
+#card_btn_container {
+    display: inline-block;
+    text-align: center;
+}
+
+#team_card {
+    display: block;
+    border: 15px solid gold;
+    border-radius: 10px;
+    width: 285px;
+    height: 400px;
+    margin: 36px 36px 24px 36px;
+    margin-top: 60px;
+    text-align: center;
+    background-image: url("../images/tie_dye.webp");
+    font-family: sans-serif;
+    box-shadow: 5px 5px 10px 10px;
+}
+
+#team_remove_btn {
+    margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 12px;
+    width: 100px;
+    height: 37px;
+    background-color: rgb(160, 22, 22);
+    color: white;
+    font-weight: bold;
 }
 
 

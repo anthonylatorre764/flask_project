@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Team
+{% endblock %}
+
+    {% block content %}
+        <h2 id="team_heading">My Team</h2>
+        <div id="team_container">
+            {% for poke_dict in team_list %}
+                <div id="card_btn_container">
+                    <div id="team_card">
+                        <div id="name_xp">
+                            {% if poke_dict['name']|length > 8 %}
+                                <h3 id="pokemon" style="font-size: 17px;">{{poke_dict['name'].title()}}</h3>
+                            {% else %}
+                                <h3 id="pokemon">{{poke_dict['name'].title()}}</h3>
+                            {% endif %}
+                            <p id="hp">{{poke_dict['hp']|string + ' HP'}}</p>
+                        </div>
+                        <img src="{{ poke_dict['sprite'] }}" id="sprite">
+                        <div id="abilities_container">
+                            <div class="battle_stat_box">
+                                <p>Attack:</p>
+                                <p class="attack_defense">{{poke_dict['attack']}}</p>
+                            </div>
+                            <hr>
+                            <div class="battle_stat_box">
+                                <p>Defense:</p>
+                                <p class="attack_defense">{{poke_dict['defense']}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{{ url_for('main.remove_pokemon', pokemon_id=poke_dict['id']) }}"><button id="team_remove_btn">Remove</button></a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endblock %}

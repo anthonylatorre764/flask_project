@@ -67,5 +67,5 @@ def signup():
 @login_required
 def logout():
     logout_user()
-    flash('Successfully logged out!', 'warning')
+    flash('Successfully logged out!', 'success')
     return redirect(url_for('main.home'))

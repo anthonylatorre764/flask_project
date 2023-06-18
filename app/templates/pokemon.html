@@ -36,9 +36,13 @@
       </div>
     </div>
     {% if caught_flag == True %}
-      <a href="{{ url_for('main.remove_pokemon') }}"><button>remove</button></a>
+      <div class="catch_remove_container">
+        <a href="{{ url_for('main.remove_pokemon', pokemon_id=pokemon_dict['id']) }}"><button id="remove_btn">Remove from Team</button></a>
+      </div>
     {% else %}
-      <a href="{{ url_for('main.catch_pokemon') }}"><button>catch</button></a>
+      <div class="catch_remove_container">
+        <a href="{{ url_for('main.catch_pokemon', pokemon_id=pokemon_dict['id']) }}"><button id="catch_btn">Catch</button></a>
+      </div>
     {% endif %}
 
     {% endif %}
