@@ -84,6 +84,199 @@ body {
 
 
 
+/* Search Users Page */
+#users_heading {
+    margin: 20px 0 50px 40px;
+    font-size: 30px;
+}
+
+.user_container {
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 210px;
+    height: 75px;
+    padding: 15px;
+    margin: 0 0 30px 95px;
+    background-color: rgba(23, 89, 195, 0.583);
+}
+
+.user_container p {
+    margin: 0;
+    font-weight: bold;
+}
+
+#user_battle_btn {
+    background-color: rgb(189, 47, 47);
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 0 black;
+}
+
+#user_battle_btn:hover {
+    background-color: rgb(164, 40, 40);
+}
+
+
+
+/* Battle Page */
+#pokemon_vs_container {
+    background-image: url('/static/images/battle_ground.jpeg');
+    background-size: cover;
+    border-radius: 10px;
+    padding: 20px 0;
+    width: 480px;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+    padding: 50px 0;
+    position: relative;
+}
+
+#vs_text {
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 180px 0;
+}
+
+#vs_text h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 2px 2px 1px white;
+}
+
+.pokemon_info {
+    display: inline-block;
+    text-align: center;
+    margin: 0 20px;
+}
+
+#home_sprite {
+    transform: scaleX(-1);
+    width: 175px;
+}
+
+#away_sprite {
+    width: 175px;
+}
+
+.pokemon_info img {
+    width: 197px;
+    margin: 9px;
+}
+
+.pokemon_info h3 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.pokemon_info h6 {
+    font-size: 16px;
+}
+
+.pokemon_info p {
+    background-color: lightblue;
+    border-radius: 10px;
+    font-size: 22px;
+    border: 2px solid black;
+    width: 150px;
+    margin: 0 auto;
+}
+
+#battle_btn_container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#battle_btn {
+    background-color: rgb(177, 2, 2);
+    color: lightgrey;
+    font-weight: bold;
+    font-size: larger;
+    height: 50px;
+    width: 130px;
+    border-radius: 5px;
+}
+
+
+
+
+#players_container {
+    display: flex;
+    justify-content: space-between;
+    width: 340px;
+    margin: 0 auto;
+}
+
+.player_box {
+    background-color: rgba(23, 89, 195, 0.583);
+    display: inline-block;
+    width: 100px;
+    height: 53px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.player_label {
+    color: rgb(18, 18, 61);
+    font-weight: bold;
+    margin: 0;
+}
+
+
+@media screen and (min-width: 950px) {
+    #players_container {
+        width: 540px;
+    }
+    
+    #pokemon_vs_container {
+        width: 900px;
+    }
+
+    .pokemon_info {
+        margin: 0 80px;
+    }
+
+    #vs_text {
+        padding: 210px 0;
+    }
+
+    #vs_text h1 {
+        font-size: 70px;
+        text-shadow: 3px 3px 1px white;
+    }
+
+    #home_sprite {
+        width: 250px;
+    }
+    
+    #away_sprite {
+        width: 250px;
+    }
+
+    .pokemon_info p {
+        font-size: 28px;
+        width: 200px;
+    }
+
+    .pokemon_info h3 {
+        font-size: 30px;
+    }
+
+    .pokemon_info h6 {
+        font-size: 19px;
+    }
+}
+
+
+
+
 
 /* Pokemon Page */
 #pokemon_form {
@@ -119,7 +312,9 @@ body {
     font-weight: bold;
 }
 
-
+.submit_btn:hover {
+    background-color: rgba(20, 68, 144, 0.906);
+}
 
 
 #card_container {
@@ -214,6 +409,10 @@ hr {
     font-weight: bold;
 }
 
+#remove_btn:hover {
+    background-color: rgb(127, 19, 19);
+}
+
 #catch_btn {
     margin: 0 auto;
     border: 2px solid black;
@@ -223,6 +422,10 @@ hr {
     background-color: green;
     color: white;
     font-weight: bold;
+}
+
+#catch_btn:hover {
+    background-color: rgb(1, 104, 1);
 }
 
 
@@ -275,6 +478,10 @@ hr {
     background-color: rgb(160, 22, 22);
     color: white;
     font-weight: bold;
+}
+
+#team_remove_btn:hover {
+    background-color: rgb(134, 22, 22);
 }
 
 

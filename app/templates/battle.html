@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Battle
+{% endblock %}
+
+    {% block content %}
+        <div id="players_container">
+            <div class="player_box">
+                <p class="player_label">Player 1:</p>
+                <p class="player_name">{{current_user.first_name}}</p>
+            </div>
+            <div class="player_box">
+                <p class="player_label">Player 2:</p>
+                <p class="player_name">{{opponent.first_name}}</p>
+            </div>    
+        </div>
+        <div id="pokemon_vs_container">
+           <div class="pokemon_info">
+                <p>{{home_pokemon.name|title}}</p>
+                <img id="home_sprite" src="{{home_pokemon.sprite}}" alt="image of pokemon #1">
+                <h3>{{home_pokemon.hp}} HP</h3>
+                <h6>{{home_pokemon.attack}} Attack</h6>
+                <h6>{{home_pokemon.defense}} Defense</h6>
+            </div>
+            <div id="vs_text">
+                <h1>VS</h1>  
+            </div>
+            <div class="pokemon_info">
+                <p>{{away_pokemon.name|title}}</p>
+                <img id="away_sprite" src="{{away_pokemon.sprite}}" alt="image of pokemon #2">
+                <h3>{{away_pokemon.hp}} HP</h3>
+                <h6>{{away_pokemon.attack}} Attack</h6>
+                <h6>{{away_pokemon.defense}} Defense</h6>
+            </div>
+        </div>
+        {% if not battled_flag %}
+        <div id="battle_btn_container">
+            <a href="{{url_for('main.do_battle', home_id=home_pokemon.id, away_id=away_pokemon.id)}}"><button id="battle_btn">Start Battle</button></a>
+        </div>
+        {% endif %}
+    {% endblock %}

@@ -12,7 +12,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png')}}">
     <link rel="manifest" href="{{ url_for('static', filename='images/site.webmanifest')}}">
 
-
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
@@ -27,6 +26,9 @@
               {% if current_user.is_authenticated %}
                   <li class="nav-item">
                     <a class="nav-link" id="home_tab" aria-current="page" href="{{ url_for('main.home') }}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.search_users') }}">Search Users</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('main.pokemon') }}">Search Pokemon</a>

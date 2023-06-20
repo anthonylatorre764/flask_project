@@ -1,9 +1,10 @@
 from flask import request, render_template, flash, session, redirect, url_for
+import random as r
 import requests
 from app.blueprints.main.forms import PokemonForm
 from . import main
 from flask_login import login_required, current_user
-from app.models import Pokemon, Team
+from app.models import Pokemon, User
 from app import db
 
 
@@ -66,7 +67,7 @@ def pokemon():
 
 
 
-@main.route('/catch_pokemon/<int:pokemon_id>', methods=['GET', 'POST'])
+@main.route('/catch_pokemon/<int:pokemon_id>')
 def catch_pokemon(pokemon_id):
 
     pokemon_match = Pokemon.query.filter_by(id=pokemon_id).all()
@@ -111,7 +112,7 @@ def catch_pokemon(pokemon_id):
         return redirect(url_for('main.pokemon'))
 
 
-@main.route('/remove_pokemon/<int:pokemon_id>', methods=['GET', 'POST'])
+@main.route('/remove_pokemon/<int:pokemon_id>')
 def remove_pokemon(pokemon_id):
     # query the pokemon from database
     pokemon = Pokemon.query.get(pokemon_id)
@@ -126,7 +127,7 @@ def remove_pokemon(pokemon_id):
     return redirect(url_for('main.team'))
 
 
-@main.route('/team', methods=['GET', 'POST'])
+@main.route('/team')
 def team():
     team_list = []
 
@@ -165,3 +166,68 @@ def team():
 #         'defense': 90
 #     }
 # ]
+
+
+@main.route('/search_users')
+def search_users():
+    user_list = User.query.all()
+
+    user_list.remove(current_user)
+
+    return render_template('users.html', user_list=user_list)
+
+
+@main.route('/battle/<int:user_id>')
+def battle(user_id):
+    opponent = User.query.get(user_id)
+    session['opponent_id'] = user_id
+    
+    if opponent.team:
+        away_pokemon = opponent.team[r.randint(0, (len(opponent.team)-1))]
+    else:
+        flash("Your opponent's team is empty. You can battle them once they catch a pokemon.", "danger")
+        return redirect(url_for('main.search_users'))
+    
+    if current_user.team:
+        home_pokemon = current_user.team[r.randint(0, (len(current_user.team)-1))]
+    else:
+        flash("Your team is empty. You can battle another user once you catch a pokemon.", "danger")
+        return redirect(url_for('main.pokemon'))
+    
+
+
+    return render_template('battle.html', away_pokemon=away_pokemon, home_pokemon=home_pokemon, opponent=opponent)
+
+
+
+@main.route('/do_battle/<int:home_id>/<int:away_id>')
+def do_battle(home_id, away_id):
+    opponent = User.query.get(session['opponent_id'])
+
+    home_pokemon = Pokemon.query.get(home_id)
+    away_pokemon = Pokemon.query.get(away_id)
+
+    # Battle Calculation
+    home_hp = home_pokemon.hp
+    away_hp = away_pokemon.hp
+
+    while home_hp > 0 and away_hp > 0:
+        # away attacks first
+        attack_outcome = home_pokemon.defense - away_pokemon.attack
+        if attack_outcome < 0:
+            home_hp -= abs(attack_outcome)
+
+        attack_outcome = away_pokemon.defense - home_pokemon.attack
+        if attack_outcome < 0:
+            away_hp -= abs(attack_outcome)
+
+    
+    if home_hp <= 0:
+        flash(f"{away_pokemon.name} won the battle!", "success")
+    elif away_hp <= 0:
+        flash(f"{home_pokemon.name} won the battle!", "success")
+
+
+    battled_flag = True
+
+    return render_template('battle.html', away_pokemon=away_pokemon, home_pokemon=home_pokemon, opponent=opponent, battled_flag=battled_flag)
